@@ -3,10 +3,7 @@ package com.joaoeduardoam.passin.domain.event;
 import com.joaoeduardoam.passin.dto.event.EventRequestDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "events")
@@ -14,6 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Event {
 
     @Id
@@ -36,10 +34,10 @@ public class Event {
     @Column(name = "maximum_attendees")
     private Integer maximumAttendees;
 
-    public Event(EventRequestDTO dto, String slug) {
-        setTitle(dto.title());
-        setDetails(dto.details());
-        setMaximumAttendees(dto.maximumAttendees());
-        setSlug(slug);
-    }
+//    public Event(EventRequestDTO dto, String slug) {
+//        setTitle(dto.title());
+//        setDetails(dto.details());
+//        setMaximumAttendees(dto.maximumAttendees());
+//        setSlug(slug);
+//    }
 }

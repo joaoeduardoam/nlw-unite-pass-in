@@ -1,6 +1,8 @@
 package com.joaoeduardoam.passin.controllers;
 
 import com.joaoeduardoam.passin.dto.attendee.AttendeeDetailsDTO;
+import com.joaoeduardoam.passin.dto.attendee.AttendeeIdDTO;
+import com.joaoeduardoam.passin.dto.attendee.AttendeeRequestDTO;
 import com.joaoeduardoam.passin.dto.event.EventDetailDTO;
 import com.joaoeduardoam.passin.dto.event.EventIdDTO;
 import com.joaoeduardoam.passin.dto.event.EventRequestDTO;
@@ -29,11 +31,20 @@ public class EventController {
     }
 
     @PostMapping
-    public ResponseEntity<EventIdDTO> createEvent(@RequestBody EventRequestDTO dto,
-                                                UriComponentsBuilder uriBuilder){
+    public ResponseEntity<EventIdDTO> createEvent(@RequestBody EventRequestDTO dto, UriComponentsBuilder uriBuilder){
         EventIdDTO eventIdDTO= eventService.createEvent(dto);
         var uri = uriBuilder.path("events/{id}").buildAndExpand(eventIdDTO.eventId()).toUri();
         return ResponseEntity.created(uri).body(eventIdDTO);
+    }
+
+    @PostMapping("/{eventId}/attendees")
+    public ResponseEntity<AttendeeIdDTO> registerAttendee(@PathVariable String eventId, @RequestBody AttendeeRequestDTO dto,
+                                                  UriComponentsBuilder uriBuilder){
+        System.out.println("AAAAAAAAAAAAAAAAAA:"+dto);
+        AttendeeIdDTO attendeeIdDTO = eventService.registerAttendeeOnEvent(eventId, dto);
+        System.out.println("QQQQQQQQQQQQQQQQQQQ:"+attendeeIdDTO);
+        var uri = uriBuilder.path("/attendees/{attendeesId}/badge").buildAndExpand(attendeeIdDTO.attendeeId()).toUri();
+        return ResponseEntity.created(uri).body(attendeeIdDTO);
     }
 
     @GetMapping("/{eventId}/attendees")

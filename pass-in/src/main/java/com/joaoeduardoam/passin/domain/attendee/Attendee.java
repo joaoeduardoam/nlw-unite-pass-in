@@ -4,10 +4,7 @@ package com.joaoeduardoam.passin.domain.attendee;
 import com.joaoeduardoam.passin.domain.event.Event;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +15,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Attendee {
 
     @Id
@@ -39,6 +37,14 @@ public class Attendee {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+//    public Attendee(String name, String email, Event event, LocalDateTime createdAt) {
+//
+//        this.name = name;
+//        this.email = email;
+//        this.event = event;
+//        this.createdAt = createdAt;
+//
+//    }
 }
 
 
