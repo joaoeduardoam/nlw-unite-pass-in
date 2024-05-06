@@ -17,7 +17,7 @@ Project made on the 2024 NLW Unite event by Rocketseat
 - The organizer must be able to register a new event;
 - The organizer must be able to view event data;
 - The organizer must be able to view the list of participants;
-1. The participant must be able to register for an event;
+- The participant must be able to register for an event;
 - The participant must be able to view their registration badge;
 - The participant must be able to check-in at the event;
 
