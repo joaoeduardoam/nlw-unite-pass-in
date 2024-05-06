@@ -1,6 +1,6 @@
 # nlw-unite-pass-in
 
-Project made on the 2024 NLW Unite event by Rocketseat
+Project made on the 2024 NLW Unite event held by Rocketseat
 
 # About the project
 
